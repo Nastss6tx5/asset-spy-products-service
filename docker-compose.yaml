@@ -1,0 +1,23 @@
+services:
+  user-service:
+    build:
+      dockerfile: Dockerfile
+    container_name: products-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/asset_spy_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA: asset_spy_products_service_db
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      JWT_SECRET_KEY: "co7IB8BVZ2ZCWoyjnKbrX4ByykVOvY38vtv2DNK9kN4="
+
+    networks:
+      - asset-spy-network
+
+networks:
+  asset-spy-network:
+    driver: bridge
