@@ -25,11 +25,11 @@ spec:
                 name: products-service-secret
           env:
             - name: JAVA_TOOL_OPTIONS
-              value: "-Xmx256m -Xms256m"
+              value: "-Xms384m -Xmx512m"
           resources:
             requests:
-              memory: 256Mi
-              cpu: 100m
+              memory: "384Mi"
+              cpu: "200m"
             limits:
-              memory: 320Mi
-              cpu: 300m
+              memory: "512Mi"
+              cpu: "500m"
